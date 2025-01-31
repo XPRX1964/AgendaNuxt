@@ -1,10 +1,8 @@
-// server/api/events/index.ts (for GET and POST)
 import Event from "~/server/models/Events";
 
 export default defineEventHandler(async (event) => {
   const method = event.node.req.method;
 
-  // GET all events
   if (method === "GET") {
     try {
       const events = await Event.find().sort({ createdAt: -1 });
@@ -17,7 +15,6 @@ export default defineEventHandler(async (event) => {
     }
   }
 
-  // POST new event
   if (method === "POST") {
     try {
       const body = await readBody(event);

@@ -35,7 +35,6 @@ import EventCard from "~/components/EventCard.vue";
 
 const { events, loading, error, fetchEvents } = useEvents();
 
-// Trigger fetch on component mount
 onMounted(async () => {
   if (events.value.length === 0) {
     await fetchEvents();

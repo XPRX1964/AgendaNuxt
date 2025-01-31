@@ -1,11 +1,9 @@
-// server/api/events/[id].ts (for GET, PUT, DELETE by ID)
 import Event from "~/server/models/Events";
 
 export default defineEventHandler(async (event) => {
   const method = event.node.req.method;
   const id = getRouterParam(event, "id");
 
-  // GET single event
   if (method === "GET") {
     try {
       const singleEvent = await Event.findById(id);
@@ -23,7 +21,6 @@ export default defineEventHandler(async (event) => {
     }
   }
 
-  // PUT update event
   if (method === "PUT") {
     try {
       const body = await readBody(event);
@@ -44,7 +41,6 @@ export default defineEventHandler(async (event) => {
     }
   }
 
-  // DELETE event
   if (method === "DELETE") {
     try {
       const deletedEvent = await Event.findByIdAndDelete(id);

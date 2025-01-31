@@ -124,13 +124,13 @@ const handleSubmit = async (eventData) => {
     if (isEditing.value) {
       await editEvent({
         ...eventData,
-        _id: currentEvent.value._id, // Make sure to include the _id
+        _id: currentEvent.value._id,
       });
     } else {
       await addEvent(eventData);
     }
     cancelEdit();
-    await fetchEvents(); // Refresh the list after submit
+    await fetchEvents();
   } catch (err) {
     console.error("Error submitting event:", err);
   }

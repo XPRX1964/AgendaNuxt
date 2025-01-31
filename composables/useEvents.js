@@ -5,7 +5,6 @@ export const useEvents = () => {
   const loading = ref(false);
   const error = ref(null);
 
-  // Use $fetch instead of useFetch for post-mount data fetching
   const fetchEvents = async () => {
     loading.value = true;
     error.value = null;
@@ -96,7 +95,6 @@ export const useEvents = () => {
     }
   };
 
-  // Ensure events are fetched on initial load
   onMounted(fetchEvents);
 
   return {
